@@ -308,8 +308,9 @@ export default function App() {
       if (inputs.enableCharImage && result.characterPrompt) {
         await handleRegenerateImage(result.characterPrompt);
       }
-    } catch (error) {
-      alert('Có lỗi xảy ra khi tạo câu lệnh. Vui lòng thử lại.');
+    } catch (error: any) {
+  console.error(error);
+  alert(error?.message || 'Có lỗi xảy ra khi tạo câu lệnh. Vui lòng thử lại.');
     } finally {
       setLoading(false);
     }
